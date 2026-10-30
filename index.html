@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Responsive university student portal prototype">
+  <title>University Student Portal</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- LOGIN / WELCOME SCREEN -->
+  <section class="login-screen" id="loginScreen" aria-label="University portal login">    
+    <div class="login-overlay"></div>
+    <main class="login-card">
+      
+<div class="anniversary-brand">
+  <img src="images/anniversary.jpg" alt="University logo" class="university-logo">
+  <div class="anniversary-words"><span>Years</span><span>Anniversary</span></div>
+</div>
+
+      </div>
+
+      <h1>Welcome to the internal information portal of<br><strong class="university-name">NAZARBAYEV UNIVERSITY</strong></h1>
+
+      <form id="loginForm" class="login-form">
+        <label class="sr-only" for="username">Username</label>
+        <input id="username" name="username" type="text" placeholder="Username" autocomplete="username" required>
+
+        <label class="sr-only" for="password">Password</label>
+        <input id="password" name="password" type="password" placeholder="Password" autocomplete="current-password" required>
+
+        <label class="captcha-box">
+          <input id="captchaCheck" type="checkbox" aria-label="I'm not a robot">
+          <span class="captcha-text">I'm not a robot<small>This checkbox is a visual placeholder.</small></span>
+          <span class="captcha-brand"><span class="captcha-mark">↻</span><span>reCAPTCHA</span></span>
+        </label>
+
+        <p class="login-message" id="loginMessage" aria-live="polite">Enter username and password.</p>
+        <button class="login-button" type="submit">LOGIN</button>
+      </form>
+    </main>
+  </section>
+
+  <!-- STUDENT PORTAL SCREEN (shown after demo login) -->
+  <div class="portal-screen" id="portalScreen" hidden>
+    <div class="top-accent"></div>
+    <header class="site-header">
+      <div class="header-inner page-width">
+        <a class="brand-pair" href="#" aria-label="University home">
+          
+<span class="mini-brand">
+  <img
+    src="images/logo.jpg"
+    alt="University logo"
+    class="header-university-logo"
+  >
+  <span class="brand-name">NAZARBAYEV<br>UNIVERSITY</span>
+</span>
+
+          <span class="brand-divider"></span>
+          <span class="mini-brand">
+  <img
+    src="images/logo.jpg"
+    alt="University logo2"
+    class="header-university-logo2"
+          <span class="union-brand">STUDENT UNION<br>NAZARBAYEV<br>UNIVERSITY</span>
+        </a>
+        <div class="header-actions">
+          <button type="button" class="logout-link" id="logoutButton">Log Out <span aria-hidden="true">⏻</span></button>
+          <button type="button" class="user-menu" id="userMenuButton" aria-expanded="false">
+            <span id="headerUserName">Student Name</span><span class="tiny-chevron" aria-hidden="true">⌄</span>
+          </button>
+          <div class="user-dropdown" id="userDropdown" hidden>
+            <a href="#account">My account</a>
+            <button type="button" id="dropdownLogout">Log out</button>
+          </div>
+        </div>
+      </div>
+      <div class="header-watermark" aria-hidden="true">▱</div>
+    </header>
+
+    <nav class="main-nav" aria-label="Main navigation">
+      <div class="nav-inner page-width">
+        <button class="mobile-nav-toggle" id="mobileNavToggle" type="button" aria-expanded="false" aria-controls="navLinks">☰ <span>Menu</span></button>
+        <div class="nav-links" id="navLinks">
+          <a class="home-nav" href="#home" aria-label="Home">⌂</a>
+          <details class="nav-item"><summary>ABOUT NU</summary><div class="nav-dropdown"><a href="#">Overview</a><a href="#">Campus</a><a href="#">Contacts</a></div></details>
+          <details class="nav-item"><summary>NEW STUDENTS</summary><div class="nav-dropdown"><a href="#">Getting started</a><a href="#">Student guide</a></div></details>
+          <details class="nav-item"><summary>STUDENT HOUSING</summary><div class="nav-dropdown"><a href="#">Dormitories</a><a href="#">Housing information</a></div></details>
+          <details class="nav-item"><summary>LEADERSHIP &amp; INVOLVEMENT</summary><div class="nav-dropdown"><a href="#">Student clubs</a><a href="#">Leadership opportunities</a></div></details>
+          <details class="nav-item"><summary>STUDENT GOVERNMENT</summary><div class="nav-dropdown"><a href="#">Student council</a><a href="#">Get involved</a></div></details>
+          <details class="nav-item"><summary>SPORTS COMPLEX</summary><div class="nav-dropdown"><a href="#">Membership</a><a href="#">Sports facilities</a></div></details>
+          <details class="nav-item"><summary>STUDENT ADVOCACY</summary><div class="nav-dropdown"><a href="#">Support</a><a href="#">Student rights</a></div></details>
+          <details class="nav-item"><summary>PSYCHOLOGICAL COUNSELING SERVICES</summary><div class="nav-dropdown"><a href="#">Book a consultation</a><a href="#">Resources</a></div></details>
+          <details class="nav-item"><summary>HEALTH SERVICES</summary><div class="nav-dropdown"><a href="#">Medical centre</a><a href="#">Health information</a></div></details>
+          <a class="nav-simple" href="#">LEARNING ONLINE</a>
+        </div>
+      </div>
+    </nav>
+
+    <div class="breadcrumbs page-width"><a href="#home" aria-label="Home">⌂</a><span>›</span><span>My account</span></div>
+
+    <main class="dashboard page-width" id="account">
+      <aside class="profile-card">
+        <h2 id="profileName">Student Name</h2>
+        <p class="student-id">ID: 202533749</p>
+        <img class="profile-photo" src="images/student.jpg" alt="Student profile photo">
+        <a href="#">Accession services agreement</a>
+        <a href="#">My account using regulation</a>
+      </aside>
+
+      <section class="account-content" aria-label="Account and payments">
+        <div class="account-tabs" role="tablist" aria-label="Account sections">
+          <button type="button" class="account-tab active" id="makePaymentTab" role="tab" aria-selected="true" aria-controls="makePaymentPanel">MAKE A PAYMENT</button>
+          <button type="button" class="account-tab" id="myPaymentsTab" role="tab" aria-selected="false" aria-controls="myPaymentsPanel">MY PAYMENTS</button>
+        </div>
+
+        <div class="tab-panel" id="makePaymentPanel" role="tabpanel" aria-labelledby="makePaymentTab">
+          <div class="payment-category">
+            <div class="category-heading"><h3>SPORTS</h3><button type="button" class="collapse-button" aria-expanded="true" aria-label="Collapse Sports">−</button></div>
+            <div class="category-links">
+              <a href="#" data-payment="Multi-visit pass">Multi-visit pass</a>
+              <a href="#" data-payment="All access pass 3m">All access pass 3m</a>
+              <a href="#" data-payment="All access pass 6m">All access pass 6m</a>
+            </div>
+          </div>
+
+          <div class="payment-category">
+            <div class="category-heading"><h3>OTHER</h3><button type="button" class="collapse-button" aria-expanded="true" aria-label="Collapse Other">−</button></div>
+            <div class="category-links">
+              <a href="#" data-payment="Recovering ID">Recovering ID</a>
+              <a href="#" data-payment="Student fund">Student fund</a>
+            </div>
+          </div>
+
+          <div class="payment-category">
+            <div class="category-heading"><h3>DORMITORY</h3><button type="button" class="collapse-button" aria-expanded="true" aria-label="Collapse Dormitory">−</button></div>
+            <div class="category-links"><a href="#" data-payment="Dormitory fee">Dormitory fee</a></div>
+          </div>
+          <p class="toast-message" id="paymentMessage" role="status" aria-live="polite"></p>
+        </div>
+
+        <div class="tab-panel payments-panel" id="myPaymentsPanel" role="tabpanel" aria-labelledby="myPaymentsTab" hidden>
+          <h2>MY PAYMENTS</h2>
+          <p class="empty-payments">No payments to display in this demo.</p>
+          <div class="payments-table-wrap">
+            <table class="payments-table">
+              <thead><tr><th>Date</th><th>Payment</th><th>Amount</th><th>Status</th></tr></thead>
+              <tbody id="paymentsTableBody"><tr><td>—</td><td>—</td><td>—</td><td>—</td></tr></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-main">
+        <div class="footer-inner page-width">
+          <div class="footer-department"><strong>NAZARBAYEV UNIVERSITY</strong><span>Department of Student Services</span></div>
+          <div class="footer-building" aria-hidden="true">
+            <svg viewBox="0 0 360 100" role="img" aria-label="Decorative university building illustration">
+              <g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round">
+                <path d="M18 91V54l30-20 30 20v37M48 34V17l16 8v20M78 91V44l31-17 31 17v47M109 27V14l17 7v15M140 91V36l40-24 40 24v55M180 12V4l15 8M220 91V44l31-17 31 17v47M282 91V54l30-20 30 20v37"/>
+                <path d="M8 91H352M30 60h35M90 50h38M150 43h60M232 50h38M294 60h35M155 91V54h50v37M165 54V39h30v15M168 39l12-9 12 9M166 65h8v10h-8zM185 65h8v10h-8zM25 69h8v11h-8zM51 69h8v11h-8zM96 59h8v11h-8zM118 59h8v11h-8zM239 59h8v11h-8zM261 59h8v11h-8zM300 69h8v11h-8zM322 69h8v11h-8z"/>
+              </g>
+            </svg>
+          </div>
+          <address>53 Kabanbay Batyr Ave, Nur-Sultan city,<br>Republic of Kazakhstan, 010000<br>Nazarbayev University</address>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="footer-bottom-inner page-width"><div class="social-links" aria-label="Social media"><a href="#" aria-label="Facebook">f</a><a href="#" aria-label="VK">ᴠκ</a><a href="#" aria-label="Instagram">◎</a><a href="#" aria-label="LinkedIn">in</a><a href="#" aria-label="Twitter">♥</a></div><span>2022 © Department of Student Services</span></div>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    const loginScreen = document.getElementById('loginScreen');
+    const portalScreen = document.getElementById('portalScreen');
+    const loginForm = document.getElementById('loginForm');
+    const loginMessage = document.getElementById('loginMessage');
+    const captchaCheck = document.getElementById('captchaCheck');
+    const usernameInput = document.getElementById('username');
+
+    function showLogin() {
+      portalScreen.hidden = true;
+      loginScreen.hidden = false;
+      document.getElementById('password').value = '';
+      captchaCheck.checked = false;
+      loginMessage.textContent = 'Demo only — enter any username and password.';
+      document.getElementById('userDropdown').hidden = true;
+    }
+
+    loginForm.addEventListener('submit', function (event) {
+      event.preventDefault();
+      if (!captchaCheck.checked) {
+        loginMessage.textContent = 'Please tick the demo checkbox to continue.';
+        return;
+      }
+      const rawName = usernameInput.value.trim();
+      const displayName = rawName.replace(/[._-]+/g, ' ').replace(/\b\w/g, letter => letter.toUpperCase()) || 'Student Name';
+      document.getElementById('profileName').textContent = displayName;
+      document.getElementById('headerUserName').textContent = displayName;
+      loginScreen.hidden = true;
+      portalScreen.hidden = false;
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    document.getElementById('logoutButton').addEventListener('click', showLogin);
+    document.getElementById('dropdownLogout').addEventListener('click', showLogin);
+
+    const userMenuButton = document.getElementById('userMenuButton');
+    const userDropdown = document.getElementById('userDropdown');
+    userMenuButton.addEventListener('click', function () {
+      const willOpen = userDropdown.hidden;
+      userDropdown.hidden = !willOpen;
+      userMenuButton.setAttribute('aria-expanded', String(willOpen));
+    });
+    document.addEventListener('click', function (event) {
+      if (!event.target.closest('.header-actions')) {
+        userDropdown.hidden = true;
+        userMenuButton.setAttribute('aria-expanded', 'false');
+      }
+    });
+
+    const makePaymentTab = document.getElementById('makePaymentTab');
+    const myPaymentsTab = document.getElementById('myPaymentsTab');
+    const makePaymentPanel = document.getElementById('makePaymentPanel');
+    const myPaymentsPanel = document.getElementById('myPaymentsPanel');
+    function selectTab(showPayments) {
+      makePaymentPanel.hidden = showPayments;
+      myPaymentsPanel.hidden = !showPayments;
+      makePaymentTab.classList.toggle('active', !showPayments);
+      myPaymentsTab.classList.toggle('active', showPayments);
+      makePaymentTab.setAttribute('aria-selected', String(!showPayments));
+      myPaymentsTab.setAttribute('aria-selected', String(showPayments));
+    }
+    makePaymentTab.addEventListener('click', () => selectTab(false));
+    myPaymentsTab.addEventListener('click', () => selectTab(true));
+
+    document.querySelectorAll('.collapse-button').forEach(button => {
+      button.addEventListener('click', function () {
+        const category = this.closest('.payment-category');
+        const links = category.querySelector('.category-links');
+        const expanded = this.getAttribute('aria-expanded') === 'true';
+        this.setAttribute('aria-expanded', String(!expanded));
+        this.textContent = expanded ? '+' : '−';
+        links.hidden = expanded;
+      });
+    });
+
+    document.querySelectorAll('[data-payment]').forEach(link => {
+      link.addEventListener('click', function (event) {
+        event.preventDefault();
+        document.getElementById('paymentMessage').textContent = 'Selected: ' + this.dataset.payment + '. Connect a payment system to process real payments.';
+      });
+    });
+
+    const mobileNavToggle = document.getElementById('mobileNavToggle');
+    const navLinks = document.getElementById('navLinks');
+    mobileNavToggle.addEventListener('click', function () {
+      const isOpen = navLinks.classList.toggle('is-open');
+      mobileNavToggle.setAttribute('aria-expanded', String(isOpen));
+    });
+  </script>
+</body>
+</html>
